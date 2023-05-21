@@ -37,6 +37,7 @@ fetch("https://api.github.com/users/suhabadarneh")
     bio.textContent = `${data.bio}`;
     followers.textContent = `${data.followers}`;
     following.textContent = `${data.following}`;
+    reposNum.textContent = `${data.public_repos}`;
   });
 
 /* Fetch Suha's Repos*/

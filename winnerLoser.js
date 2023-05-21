@@ -54,6 +54,7 @@ const winnerLoserReposNumRight = document.querySelector(
   ".winnerLoser-repos-num-right"
 );
 const compareButton = document.querySelector(".compare-button");
+const emptyInputAlert = document.querySelector(".empty-input-alert");
 
 let reposOne,
   reposTwo,
@@ -123,40 +124,63 @@ winnerLoserSearchFormRight.addEventListener("submit", (e) => {
 });
 
 compareButton.addEventListener("click", (e) => {
-  if (reposOne > reposTwo) {
-    let parOne = document.createElement("p");
-    parOne.style.fontSize = "larger";
-    parOne.textContent = "Winner";
-    parOne.style.color = "white";
-    parOne.style.backgroundColor = "green";
-    parOne.style.padding = "1rem";
-    resultWinnerLoserLeft.appendChild(parOne);
-    let parTwo = document.createElement("p");
-    parTwo.style.fontSize = "larger";
-    parTwo.textContent = "Loser";
-    parTwo.style.color = "red";
+  if (winnerLoserSearchLeft.value != "" && winnerLoserSearchRight.value != "") {
+    if (reposOne > reposTwo) {
+      let parOne = document.createElement("p");
+      parOne.style.fontSize = "larger";
+      parOne.textContent = "Winner";
+      parOne.style.color = "white";
+      parOne.style.backgroundColor = "green";
+      parOne.style.padding = "1rem";
+      resultWinnerLoserLeft.appendChild(parOne);
+      let parTwo = document.createElement("p");
+      parTwo.style.fontSize = "larger";
+      parTwo.textContent = "Loser";
+      parTwo.style.color = "red";
 
-    parTwo.style.border = "1px solid red";
-    parTwo.style.padding = "1rem";
+      parTwo.style.border = "1px solid red";
+      parTwo.style.padding = "1rem";
 
-    resultWinnerLoserRight.appendChild(parTwo);
-  } else if (reposOne < reposTwo) {
-    let parOne = document.createElement("p");
-    parOne.textContent = "Loser";
-    parOne.style.fontSize = "larger";
-    parOne.style.color = "red";
-    parOne.style.border = "1px solid red";
-    parOne.style.padding = "1rem";
+      resultWinnerLoserRight.appendChild(parTwo);
+    } else if (reposOne < reposTwo) {
+      let parOne = document.createElement("p");
+      parOne.textContent = "Loser";
+      parOne.style.fontSize = "larger";
+      parOne.style.color = "red";
+      parOne.style.border = "1px solid red";
+      parOne.style.padding = "1rem";
 
-    resultWinnerLoserLeft.appendChild(parOne);
-    let parTwo = document.createElement("p");
-    parTwo.textContent = "Winner";
-    parTwo.style.fontSize = "larger";
-    parTwo.style.color = "white";
-    parTwo.style.backgroundColor = "green";
-    parTwo.style.border = "1px solid green";
-    parTwo.style.padding = "1rem";
+      resultWinnerLoserLeft.appendChild(parOne);
+      let parTwo = document.createElement("p");
+      parTwo.textContent = "Winner";
+      parTwo.style.fontSize = "larger";
+      parTwo.style.color = "white";
+      parTwo.style.backgroundColor = "green";
+      parTwo.style.border = "1px solid green";
+      parTwo.style.padding = "1rem";
 
-    resultWinnerLoserRight.appendChild(parTwo);
+      resultWinnerLoserRight.appendChild(parTwo);
+    } else {
+      let parThree = document.createElement("p");
+      parThree.style.fontSize = "larger";
+      parThree.textContent = "Winner";
+      parThree.style.color = "white";
+      parThree.style.backgroundColor = "green";
+      parThree.style.padding = "1rem";
+      resultWinnerLoserLeft.appendChild(parThree);
+      let parFour = document.createElement("p");
+      parFour.style.fontSize = "larger";
+      parFour.textContent = "Winner";
+      parFour.style.color = "white";
+      parFour.style.backgroundColor = "green";
+      parFour.style.padding = "1rem";
+      resultWinnerLoserRight.appendChild(parFour);
+    }
   }
+});
+/*reload WinnerLoser page*/
+
+const closeButton = document.querySelector(".close-button");
+closeButton.addEventListener("click", () => {
+  document.location.reload();
 });
