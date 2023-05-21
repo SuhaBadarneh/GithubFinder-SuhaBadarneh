@@ -78,11 +78,10 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   // burgerMenu.setAttribute("data-view-component", "false");
   let search = document.getElementById("search").value;
-  console.log(search);
+
   editButton.textContent = "Follow";
   editButton.style.display = "block";
   let originalName = search.split(" ").join("");
-  console.log(originalName);
 
   /* Fetch Username*/
   fetch("https://api.github.com/users/" + originalName)
